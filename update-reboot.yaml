@@ -5,11 +5,11 @@
 
   tasks:
     - name: Update apt cache
-      ansible.builtin.apt:
+      apt:
         update_cache: yes
 
     - name: Upgrade packages
-      ansible.builtin.apt:
+      apt:
         upgrade: safe
       register: apt_upgrade_result
 
@@ -19,6 +19,6 @@
       register: reboot_required
 
     - name: Reboot the host if needed
-      ansible.builtin.reboot:
+      reboot:
         msg: "Rebooting due to package updates"
       when: reboot_required.stat.exists and apt_upgrade_result.changed
