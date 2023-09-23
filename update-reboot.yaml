@@ -3,7 +3,7 @@
   hosts: all
   become: yes
   become_user: root
-vars:
+  vars:
     ansible_connection: ssh
     ansible_user: ansible
 
