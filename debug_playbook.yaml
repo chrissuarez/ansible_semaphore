@@ -1,0 +1,10 @@
+---
+- name: Debug playbook
+  hosts: all
+  tasks:
+    - name: Print Current User
+      command: whoami
+      register: current_user
+
+    - debug:
+        msg: "Current user is {{ current_user.stdout }}"
